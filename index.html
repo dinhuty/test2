@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <button id="btn" value="off" onclick="onoff()">DarkMode</button>
+   <div id="box" class="ok" value="off">
+        <p class="name">V</p>
+        <p class="name">I</p>
+        <p class="name">E</p>
+        <p class="name">T</p>
+        <p class="name">N</p>
+        <p class="name">A</p>
+        <p class="name">M</p>
+   </div>
+    <script>
+        const list = document.querySelectorAll('.name')
+        console.log(list)
+        var i = 1
+    //    on_of
+        function onoff(){
+        var currentvalue = document.getElementById('box').value;
+        var bodyx = document.getElementById('box');
+        console.log(bodyx)
+        if(currentvalue === "off"){
+            
+            bodyx.classList.remove('black')
+            bodyx.classList.add('green')
+            document.getElementById("box").value="on";
+        }else{
+            bodyx.classList.remove('green')
+            bodyx.classList.add('black')
+            document.getElementById("box").value="off";
+        }
+        }
+
+        var i = 0
+        setInterval(() => {
+          list.forEach((e) => {
+              e.classList.remove('light1')
+              e.classList.remove('light2')
+          })
+          if(i%2==0){
+            list[i].classList.add('light1')
+        }else{
+            list[i].classList.add('light2')
+        }
+            i++
+            if (i == list.length){
+                i=0
+            }
+        }, 200)
+
+    </script>
+</body>
+</html>
